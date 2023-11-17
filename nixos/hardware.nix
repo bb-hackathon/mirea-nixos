@@ -30,17 +30,12 @@
       grub = {
         enable = true;
         device = "/dev/vda";
-        efiSupport = true;
-        # efiInstallAsRemovable = true;
         useOSProber = true;
         forceInstall = true;
-      };
-      efi = {
-        efiSysMountPoint = "/boot";
-        canTouchEfiVariables = true;
       };
     };
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";  
+  networking.hostName = "mirea-nixos";
 }
