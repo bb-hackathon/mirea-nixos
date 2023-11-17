@@ -24,7 +24,7 @@
 3. Создаём том BTRFS и монтируем в `/`
 	```bash
 	mount /dev/sda2 /mnt
-	btrfs subvolume create /mnt@
+	btrfs subvolume create /mnt/@
 	umount /mnt
 	mount /dev/sda2 /mnt -o subvol=@
 	mkdir /mnt/boot
