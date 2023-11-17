@@ -20,4 +20,4 @@ jobs:
         uses: cachix/install-nix-action@v14
 
       - name: Run nix flake check
-        run: nix flake check
+        run: nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
