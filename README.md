@@ -7,6 +7,7 @@
 
 ## Установка (VM)
 
+***ВАЖНО***: Названия дисков (`/dev/sda`) могут отличаться, например `/dev/vda` или `/dev/nvme0n1`!\
 Команды для установки внутри `live` системы:
 
 1. Отформатировать **DOS**, два раздела: 512M `/boot`, остальное под `/`. Раздел `/boot` отметить, как `bootable`!
@@ -38,7 +39,7 @@
 	cd mirea-nixos
 	```
 
-5. Из сгенерированного `/mnt/etc/nixos/hardware-configuration.nix` надо подсмотреть `availableKernelModules` и вписать их в `nixos/hardware.nix`.
+5. ***ВАЖНО!*** Из сгенерированного `/mnt/etc/nixos/hardware-configuration.nix` надо подсмотреть `availableKernelModules` и вписать их в `nixos/hardware.nix`, *а так же изменить название дисков, если они отличаются*.
 	```bash
 	nixos-generate-config --root /mnt
 	```
