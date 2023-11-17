@@ -32,8 +32,8 @@
       grub = {
         enable = true;
         device = "/dev/vda";
-        useOSProber = true;
-        forceInstall = true;
+        # useOSProber = true;
+        # forceInstall = true;
       };
     };
   };
