@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, outputs, pkgs, ... }: {
   imports = [
     ./hardware.nix
     ./ssh.nix
@@ -21,6 +21,11 @@
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
     };
   };
+
+  home-manager.extraSpecialArgs = { 
+    inherit inputs outputs;
+  };
+
 
   system.stateVersion = "23.05";
   networking.hostName = "mirea-nixos";

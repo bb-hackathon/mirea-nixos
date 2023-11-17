@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
   imports = [
+    ./hyprland.nix
   ]; # ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
