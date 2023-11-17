@@ -1,4 +1,5 @@
 { config, ... }: {
+  # FStab
   fileSystems = {
     "/" = {
       device = "/dev/vda2";
@@ -12,6 +13,7 @@
     };
   };
 
+  # Bootloader & InitRD
   boot = {
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
