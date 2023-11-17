@@ -40,7 +40,7 @@
 
     # Available through 'home-manager --flake .#username@hostname'
     homeConfigurations = {
-      "user@mirea-nixos" = mkHome [ ./home ];
+      "user@mirea-nixos" = mkHome [ ./home ] nixpkgs.legacyPackages."x86_64-linux";
     };
   };
 }
