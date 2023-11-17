@@ -1,6 +1,6 @@
 { ... }: let
   drive = rec {
-    name = "/dev/vda";
+    name = "/dev/vda"; # !!!!!!!!!
     part = "${name}";
   };
 in {
@@ -13,7 +13,7 @@ in {
     };
 
     "/boot" = {
-      device = "/dev/vda1";
+      device = "${drive.part}1";
       fsType = "vfat";
     };
   };
@@ -25,10 +25,12 @@ in {
     
     initrd = {
       availableKernelModules = [
+        # !!!!!!!!!!!!!
         "ahci"
         "xhci_pci"
         "virtio_pci"
         "virtio_blk"
+        # !!!!!!!!!!!!!
       ];
       kernelModules = [];
     };
@@ -37,12 +39,9 @@ in {
       grub = {
         enable = true;
         device = drive.name;
-        # useOSProber = true;
-        # forceInstall = true;
       };
     };
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";  
-  networking.hostName = "mirea-nixos";
 }

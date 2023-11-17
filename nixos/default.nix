@@ -23,4 +23,5 @@
   };
 
   system.stateVersion = "23.05";
+  networking.hostName = "mirea-nixos";
 }
