@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware.nix
+    ./ssh.nix
   ];
 
   # System-wide packages
