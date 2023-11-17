@@ -26,5 +26,6 @@
   home = {
     username = lib.mkDefault "astrumaureus";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = "23.05";
   };
 }
