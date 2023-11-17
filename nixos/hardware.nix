@@ -1,13 +1,18 @@
-{ config, ... }: {
+{ ... }: let
+  drive = rec {
+    name = "/dev/vda";
+    part = "${name}";
+  };
+in {
   # FStab
   fileSystems = {
     "/" = {
-      device = "/dev/vda2";
+      device = "${drive.part}2";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-    "${config.boot.loader.efi.efiSysMountPoint}" = {
+    "/boot" = {
       device = "/dev/vda1";
       fsType = "vfat";
     };
@@ -31,7 +36,7 @@
     loader = {
       grub = {
         enable = true;
-        device = "/dev/vda";
+        device = drive.name;
         # useOSProber = true;
         # forceInstall = true;
       };
