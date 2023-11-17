@@ -31,7 +31,9 @@
         enable = true;
         device = "/dev/vda";
         efiSupport = true;
-        efiInstallAsRemovable = true;
+        # efiInstallAsRemovable = true;
+        useOSProber = true;
+        forceInstall = true;
       };
       efi = {
         efiSysMountPoint = "/boot";
