@@ -2,6 +2,7 @@
   imports = [
     ./hardware.nix
     ./ssh.nix
+    ./user.nix
   ];
 
   # System-wide packages
