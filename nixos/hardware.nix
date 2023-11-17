@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   fileSystems = {
     "/" = {
       device = "/dev/vda2";
@@ -6,7 +6,7 @@
       options = [ "subvol=@" ];
     };
 
-    "/boot" = {
+    "${config.boot.loader.efi.efiSysMountPoint}" = {
       device = "/dev/vda1";
       fsType = "vfat";
     };
@@ -27,14 +27,16 @@
     };
 
     loader = {
-      # grub = {
-      #   enable = true;
-      #   device = "nodev";
-      #   efiSupport = true;
-      #   efiInstallAsRemovable = true;
-      # };
-      efi.efiSysMountPoint = "/boot";
-      systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        device = "/dev/vda";
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+      };
+      efi = {
+        efiSysMountPoint = "/boot";
+        canTouchEfiVariables = true;
+      };
     };
   };
 
