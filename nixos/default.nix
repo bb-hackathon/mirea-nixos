@@ -3,6 +3,7 @@
     ./hardware.nix
     ./ssh.nix
     ./user.nix
+    ./hyprland.nix # Enable system-wide Hyprland
   ];
 
   # System-wide packages

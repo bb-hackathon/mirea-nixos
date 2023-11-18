@@ -1,6 +1,6 @@
 # INFO: Hyprland, the smooth Wayland compositor
 
-{ inputs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [ inputs.hyprland.homeManagerModules.default ];
 
   # Extra binary caches to avoid compiling from source
@@ -17,5 +17,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    extraConfig = /* ini */ ''
+      bind = SUPER, RETURN, exec, ${pkgs.kitty}/bin/kitty # Open a terminal
+    '';
   };
 }
