@@ -17,7 +17,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = /* ini */ ''
+    extraConfig = /* shell */ ''
       bind = ALT, RETURN, exec, ${pkgs.kitty}/bin/kitty # Open a terminal
     '';
   };
