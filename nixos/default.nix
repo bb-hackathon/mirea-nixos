@@ -4,6 +4,7 @@
     ./ssh.nix
     ./user.nix
     ./hyprland.nix # Enable system-wide Hyprland
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   # System-wide packages
