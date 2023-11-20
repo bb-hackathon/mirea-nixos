@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [
     ./hardware.nix
     ./ssh.nix
     ./user.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   # System-wide packages
