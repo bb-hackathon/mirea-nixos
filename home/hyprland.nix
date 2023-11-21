@@ -15,14 +15,22 @@
     ];
   };
 
+  home.packages = with pkgs; [
+    avizo
+    swww
+    grimblast
+    alsaUtils
+    brillo
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = /* awk */ ''
       # Autostart
-      exec-once = swww init
+      exec-once = ${pkgs.swww}/bin/swww init
       exec-once = ${pkgs.eww-wayland}/bin/eww daemon --restart --force-wayland # TODO
       exec-once = ${pkgs.avizo}/bin/avizo-service
-      exec = sleep 0.5 && swww clear 1e1e2e
+      exec = sleep 0.5 && ${pkgs.swww}/bin/swww clear 1e1e2e
 
       # Kill window | Exit or reload hyprland | Lock screen
       bind =      ALT SHIFT,      Q, killactive,
