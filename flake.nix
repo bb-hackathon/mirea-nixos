@@ -33,6 +33,10 @@
       extraSpecialArgs = { inherit inputs outputs; };
     };
   in {
+    # Modules
+    nixosModules = import ./shared;
+    homeManagerModules = import ./shared;
+
     # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
       mirea-nixos = mkNixOS [ ./nixos ];

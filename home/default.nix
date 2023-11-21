@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }: {
+{ outputs, config, lib, pkgs, ... }: {
   imports = [
     ./hyprland.nix
-  ]; # ++ (builtins.attrValues outputs.homeManagerModules);
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
     config = {
@@ -37,5 +37,14 @@
     username = lib.mkDefault "user";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = "23.05";
+  };
+
+  theme = builtins.fromTOML (
+    builtins.readFile ../themes/catppuccin-mocha.toml
+  );
+  
+  # Store the userspace theme in `~/.config` in various formats
+  xdg.configFile = {
+    "theme.json".text = builtins.toJSON config.theme;
   };
 }

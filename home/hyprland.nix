@@ -1,7 +1,10 @@
 # INFO: Hyprland, the smooth Wayland compositor
 
 { inputs, pkgs, ... }: {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
+  imports = [
+    ./apps/kitty.nix
+    inputs.hyprland.homeManagerModules.default
+  ];
 
   # Extra binary caches to avoid compiling from source
   nix.settings = {

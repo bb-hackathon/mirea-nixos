@@ -5,7 +5,7 @@
     ./user.nix
     ./hyprland.nix # Enable system-wide Hyprland
     inputs.home-manager.nixosModules.home-manager
-  ];
+  ] ++ (builtins.attrValues outputs.nixosModules);
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
@@ -28,7 +28,10 @@
     inherit inputs outputs;
   };
 
-
   system.stateVersion = "23.05";
   networking.hostName = "mirea-nixos";
+
+  theme = builtins.fromTOML (
+    builtins.readFile ../themes/catppuccin-mocha.toml
+  );
 }
