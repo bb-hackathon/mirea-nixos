@@ -1,7 +1,15 @@
 ## Кейс: *"Кастомизация GNU/Linux"*
 
-- **OS**: [NixOS](https://nixos.org)
+<p align="center">
+	<img src="https://github.com/NixOS/nixos-artwork/blob/master/logo/nix-snowflake.svg" alt="NixOS Logo" width="250"/>
+</p>
+
+<p align="center">
+	NixOS Snowflake ❄️
+</p>
+
 - **Wayland композитор**: [Hyprland](https://hyprland.org)
+- **Цветовая схема**: [Catppuccin](https://github.com/catppuccin)
 
 Установочный (`live`) [образ](https://channels.nixos.org/nixos-23.05/latest-nixos-minimal-x86_64-linux.iso) NixOS
 
