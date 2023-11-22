@@ -22,7 +22,6 @@
     # System monitors
     htop
     bottom
-    nvtop
     duf
 
     # Networking
