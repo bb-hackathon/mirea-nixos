@@ -1,5 +1,6 @@
 { outputs, config, lib, pkgs, ... }: {
   imports = [
+    ./cli
     ./hyprland.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
