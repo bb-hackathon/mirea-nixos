@@ -37,6 +37,15 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        # "Iosevka"
+      ];
+    })
+  ];
+
   home-manager.extraSpecialArgs = { 
     inherit inputs outputs;
   };
