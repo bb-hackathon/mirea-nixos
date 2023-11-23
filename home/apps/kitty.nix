@@ -16,6 +16,10 @@ in {
       size = 12;
     };
     settings = {
+      sync_to_monitor = "yes";
+      window_padding_width = 4;
+      single_window_margin_width = 4;
+
       # Opacity
       background_opacity = "0.9";
 
