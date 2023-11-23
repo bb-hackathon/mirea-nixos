@@ -8,7 +8,7 @@
     ./fish.nix
     ./fzf.nix
     ./git.nix
-    ./starship.nix
+    # ./starship.nix
     ./zellij
     ./nushell
   ];

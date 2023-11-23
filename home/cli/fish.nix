@@ -9,6 +9,7 @@ in {
     interactiveShellInit = /* fish */ ''
       fish_add_path ~/.cargo/bin
 
+      set LS_COLORS $(vivid generate catppuccin-mocha)
       set fish_color_autosuggestion 'brblack'
       set fish_color_cancel -r
       set fish_color_command green
@@ -37,7 +38,8 @@ in {
       set fish_pager_color_progress 'brwhite'  '--background=cyan'
       set fish_pager_color_selected_background -r
       set PALETTE "${lib.concatStringsSep "," [
-        "${colors.base}"
+        "${colors.crust}"
+        "${colors.mantle}"
         "${colors.base}"
         "${colors.surface0}"
         "${colors.surface1}"
@@ -60,16 +62,11 @@ in {
       abbr --add --position anywhere -- "md" "mkdir -pv"
       abbr --add --position anywhere -- "cat" "bat"
       abbr --add --position anywhere -- "scl" "systemctl"
-      abbr --add --position anywhere -- "ts" "tailscale"
       abbr --add --position anywhere -- R "| rg"
       abbr --add --position anywhere L --set-cursor "% | less"
 
       function last_history_item
         echo $history[1]
-      end
-
-      function postexec_test --on-event fish_postexec
-       echo
       end
 
       abbr --add !! --position anywhere --function last_history_item
@@ -81,23 +78,13 @@ in {
       free = "free -h --si";
       duf = "duf -theme ansi";
       btm = "btm --battery";
-      nvt = "nvtop";
-      jq = "jaq";
-      y = "yazi";
       z = "zellij";
       zl = "zellij --layout";
-      # sz = "du -sh";
 
       # Power
       poweroff = "systemctl poweroff";
       shutdown = "systemctl poweroff";
       reboot = "systemctl reboot";
-
-      # # Exa
-      # l = "exa";
-      # ls = "exa -l";
-      # lsa = "exa -la";
-      # tree = "exa -l --tree";
 
       # Erdtree
       ls = "erdtree --level 1";
@@ -105,11 +92,6 @@ in {
       tree = "erdtree";
       atree = "erdtree --hidden --no-git";
       sz = "erdsize --hidden --level 1";
-
-      # Neovim
-      nv = "nvim";
-      vi = "nvim";
-      vim = "nvim";
 
       # Git: Common
       g = "git";
@@ -147,54 +129,12 @@ in {
       nsto = "nix store optimise";
       hm = "home-manager";
 
-      # Docker & docker-compose
-      d = "docker";
-      dps = "docker ps";
-      dc = "docker compose";
-      dcps = "docker compose ps";
-
-      # Rust & cargo
-      c = "cargo";
-      cn = "cargo new";
-      ca = "cargo add";
-      ci = "cargo install";
-      cu = "cargo update";
-      cc = "cargo check";
-      # ccl = "cargo clippy -- \\\n-W clippy::nursery \\\n-W clippy::pedantic \\\n-W clippy::unwrap_used";
-      ccl = lib.concatStringsSep " \\\n" [
-        "cargo clippy --all-features --all-targets --"
-        "-W clippy::nursery"
-        "-W clippy::pedantic"
-        "-W clippy::style"
-        "-W clippy::complexity"
-        "-W clippy::perf"
-      ];
-      cb = "cargo build";
-      cbr = "cargo build --release";
-      cr = "cargo run";
-      crr = "cargo run --release";
-
-      # C & C++
-      cppcheck = "cppcheck --enable=all --suppress=missingIncludeSystem";
-      "gcc" = "gcc -std=c11 -Wall -Werror -Wextra";
-      "g++" = "g++ -std=c++17 -Wall -Werror -Wextra";
-
-      # .NET & C#
-      # d = "dotnet";
-      # da = "dotnet add";
-      # dn = "dotnet new";
-      # db = "dotnet build";
-      # dr = "dotnet run";
-
       # Desktops
       Hyprland = "dbus-run-session Hyprland";
       hcl = "hyprctl";
 
       # Other CTL's
-      bcl = "bluetoothctl";
       jcl = "journalctl";
-      pw = "packwiz";
-      pwm = "packwiz modrinth";
     };
 
     # Aliases expand after abbreviations do, so they can be used to
@@ -210,13 +150,6 @@ in {
     functions = {
       # Silent startup (disable greeting)
       fish_greeting = "";
-      fish_user_key_bindings = ''
-        if status --is-login
-            if test (tty) = "/dev/tty1"
-                dbus-run-session Hyprland
-            end
-        end
-      '';
     };
   };
 }
