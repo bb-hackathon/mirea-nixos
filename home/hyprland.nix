@@ -127,7 +127,7 @@
       }
 
       decoration {
-        rounding = 16
+        rounding = 8
         drop_shadow = true
         shadow_range = 16
         col.shadow = rgb(000000)
@@ -146,7 +146,7 @@
       general {
         # Layout
         layout = dwindle
-        gaps_in = 16
+        gaps_in = 8
         gaps_out = 16
         border_size = 2
 
