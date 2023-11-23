@@ -29,6 +29,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = /* awk */ ''
+      # Monitor
+      monitor = , 1920x1200, auto, 1
+      
       # Autostart
       exec-once = ${pkgs.swww}/bin/swww init
       exec-once = ${pkgs.eww-wayland}/bin/eww daemon --restart --force-wayland # TODO
