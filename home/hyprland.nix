@@ -30,7 +30,7 @@
     enable = true;
     extraConfig = /* awk */ ''
       # Monitor
-      monitor = , 1920x1200, auto, 1
+      monitor = , 1920x1080, auto, 1
       
       # Autostart
       exec-once = ${pkgs.swww}/bin/swww init

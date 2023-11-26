@@ -14,7 +14,7 @@ in {
         "$directory"
         "$git_branch"
         "$battery"
-        # "$package"
+        "$package"
         "$line_break"
         "$hostname"
         "$cmd_duration"
