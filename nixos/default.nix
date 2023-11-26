@@ -51,7 +51,10 @@
   };
 
   system.stateVersion = "23.05";
-  networking.hostName = "mirea-nixos";
+  networking = {
+    hostName = "mirea-nixos";
+    networkmanager.enable = true;
+  };
 
   theme = builtins.fromTOML (
     builtins.readFile ../themes/catppuccin-mocha.toml
