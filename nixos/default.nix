@@ -18,6 +18,7 @@
     gcc
     gnumake
     gtklock
+    catppuccin-sddm-corners
   ];
 
   # Nix settings
@@ -67,6 +68,7 @@
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+      theme = "catppuccin";
     };
   };
 
