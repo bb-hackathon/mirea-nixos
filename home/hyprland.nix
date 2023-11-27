@@ -325,26 +325,28 @@ in {
       }
 
       #memory {
-        margin-left: 1rem;
-        margin-right: 1rem;
-        border-radius: 1rem;
+        margin-right: 0.5rem;
+        border-radius: 0px 1rem 1rem 0px;
         color: #${colors.peach};
       }
 
       #temperature {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        border-radius: 1rem;
         color: #${colors.flamingo};
       }
 
       #backlight {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         border-radius: 1rem;
         color: #${colors.yellow};
       }
 
       #battery {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         border-radius: 1rem;
         color: #${colors.green};
       }
