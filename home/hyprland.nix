@@ -41,7 +41,12 @@
       exec-once = ${pkgs.swww}/bin/swww init
       exec-once = ${pkgs.eww-wayland}/bin/eww daemon --restart --force-wayland # TODO
       exec-once = ${pkgs.avizo}/bin/avizo-service
-      exec = sleep 0.5 && ${pkgs.swww}/bin/swww clear 1e1e2e
+
+      # Uncomment one line to set the wallpapers (these 4 are always provided)
+      exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/evening-sky.png
+      # exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/nix-black.png
+      # exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/nix-magenta-blue.png
+      # exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/nix-magenta-pink.png
 
       # Kill window | Exit or reload hyprland | Lock screen
       bind =      SUPER SHIFT,      Q, killactive,
