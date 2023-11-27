@@ -359,7 +359,8 @@ in {
       }
 
       #custom-lock {
-        border-radius: 1rem 0px 0px 1rem;
+        border-radius: 1rem;
+        margin: 16px;
         color: #${colors.lavender};
       }
     '';
@@ -477,7 +478,7 @@ in {
 
       "custom/lock": {
         "tooltip": false,
-        "on-click": "swaylock",
+        "on-click": "gtklock",
         "format": ""
       },
     }
