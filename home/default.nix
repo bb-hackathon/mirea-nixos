@@ -2,6 +2,7 @@
   imports = [
     ./cli
     ./hyprland.nix
+    ./helix.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
