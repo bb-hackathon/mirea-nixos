@@ -6,7 +6,7 @@ _: {
     defaultEditor = true;
 
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "catppuccin_mocha";
       editor = {
         idle-timeout = 0;
         completion-trigger-len = 1;
