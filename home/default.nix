@@ -39,6 +39,13 @@
     username = lib.mkDefault "user";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = "23.05";
+    pointerCursor = {
+      x11.enable = true;
+      gtk.enable = true;
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      size = 32;
+    };
   };
 
   theme = builtins.fromTOML (
