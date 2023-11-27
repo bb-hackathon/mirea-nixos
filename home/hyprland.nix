@@ -24,6 +24,8 @@
     grimblast
     alsaUtils
     brillo
+    gtk-engine-murrine
+    gnome.adwaita-icon-theme
   ];
 
   wayland.windowManager.hyprland = {
@@ -56,7 +58,7 @@
       bind = SUPER CTRL SHIFT, E, exit
 
       # Screenshots
-      bind = , PRINT,      exec, ${pkgs.grimblast}/bin/grimblast copysave output
+      bind = ,        PRINT, exec, ${pkgs.grimblast}/bin/grimblast copysave output
       bind = SUPER SHIFT, S, exec, ${pkgs.grimblast}/bin/grimblast copysave area
 
       # Shift focus
@@ -76,8 +78,8 @@
       bind = SUPER, F, fullscreen,
 
       # Main apps
-      bind = SUPER,       RETURN, exec, ${pkgs.kitty}/bin/kitty
-      bind = SUPER,       P,      exec, ${pkgs.kitty}/bin/kitty ${pkgs.bottom}/bin/btm --battery
+      bind = SUPER, RETURN, exec, ${pkgs.kitty}/bin/kitty
+      bind = SUPER, P,      exec, ${pkgs.kitty}/bin/kitty ${pkgs.bottom}/bin/btm --battery
 
       # Workspace switching
       bind = SUPER, 1, workspace, 1
@@ -111,11 +113,11 @@
       bind = , XF86MonBrightnessDown, exec, ${pkgs.brillo}/bin/brillo -q -U 10 -u 100000
 
       # Volume
-      bind = SUPER SHIFT, M,            exec, volumectl toggle-mute
-      bind = , XF86AudioMute,         exec, volumectl toggle-mute
-      bind = , XF86AudioMicMute,      exec, volumectl -m toggle-mute
-      bind = , XF86AudioRaiseVolume,  exec, volumectl -u up
-      bind = , XF86AudioLowerVolume,  exec, volumectl -u down
+      bind = SUPER SHIFT, M,         exec, volumectl toggle-mute
+      bind = , XF86AudioMute,        exec, volumectl toggle-mute
+      bind = , XF86AudioMicMute,     exec, volumectl -m toggle-mute
+      bind = , XF86AudioRaiseVolume, exec, volumectl -u up
+      bind = , XF86AudioLowerVolume, exec, volumectl -u down
 
       # Power button
       bind = , XF86PowerOff, exec, hyprlock.sh
@@ -176,10 +178,10 @@
 
       # Master layout
       master {
-        special_scale_factor =  0.8
-        new_is_master =         false
-        new_on_top =            false
-        no_gaps_when_only =     false
+        special_scale_factor = 0.8
+        new_is_master        = false
+        new_on_top           = false
+        no_gaps_when_only    = false
       }
 
       # Dwindle layout
@@ -215,15 +217,32 @@
 
       animations {
         enabled = 1
-        # --        <name>        <on/off>  <time>  <bezier>  <style>
-        animation = windowsIn,    1,        3,      expo,     slide
-        animation = windowsOut,   1,        3,      expo,     slide
-        animation = windowsMove,  1,        3,      expo
-        animation = fade,         1,        3,      expo
-        animation = fadeOut,      1,        3,      expo
-        animation = workspaces,   1,        4,      expo,     slide
-        animation = border,       1,        8,      default
+        # --        <name>       <on/off> <time> <bezier> <style>
+        animation = windowsIn,   1,       3,     expo,    slide
+        animation = windowsOut,  1,       3,     expo,    slide
+        animation = windowsMove, 1,       3,     expo
+        animation = fade,        1,       3,     expo
+        animation = fadeOut,     1,       3,     expo
+        animation = workspaces,  1,       4,     expo,    slide
+        animation = border,      1,       8,     default
       }
     '';
+  };
+
+  gtk = {
+    enable = true;
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 10;
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        variant = "mocha";
+        tweaks = [];
+      };
+    };
   };
 }
