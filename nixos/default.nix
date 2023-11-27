@@ -21,6 +21,7 @@ in {
     gnumake
     gtklock
     catppuccin-sddm-corners
+    librewolf
   ] ++ (with pkgs.libsForQt5.qt5; [
     # For SDDM's `catppuccin` theme
     qtbase
