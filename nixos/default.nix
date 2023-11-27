@@ -97,6 +97,7 @@ in {
     ];
   };
 
+  # SDDM
   services.xserver = {
     enable = true;
     displayManager.sddm = {
@@ -106,6 +107,7 @@ in {
     };
   };
 
+  # PipeWire
   sound.enable = false;
   services.pipewire = {
     enable = true;
@@ -117,6 +119,9 @@ in {
     jack.enable = true;
     wireplumber.enable = true;
   };
+
+  # CUPS
+  services.printing.enable = true;
 
   # Locale
   i18n = with lib; {
