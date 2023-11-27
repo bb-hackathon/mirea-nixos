@@ -320,15 +320,14 @@ in {
         color: #${colors.green};
       }
 
-      #pulseaudio {
-        color: #${colors.maroon};
-      }
-
       #cpu {
         color: #${colors.mauve};
       }
 
       #memory {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 1rem;
         color: #${colors.peach};
       }
 
@@ -337,11 +336,16 @@ in {
       }
 
       #backlight {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 1rem;
         color: #${colors.yellow};
       }
 
       #battery {
-        border-radius: 0px 1rem 1rem 0px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 1rem;
         color: #${colors.green};
       }
 
