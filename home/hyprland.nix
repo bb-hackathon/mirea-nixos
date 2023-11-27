@@ -39,57 +39,57 @@
       exec = sleep 0.5 && ${pkgs.swww}/bin/swww clear 1e1e2e
 
       # Kill window | Exit or reload hyprland | Lock screen
-      bind =      ALT SHIFT,      Q, killactive,
-      bind =      ALT CTRL SHIFT, Q, exec, kill -9 $(hyprctl activewindow -j | jq '.pid')
-      bind =      ALT SHIFT, R, exec, hyprctl reload && eww reload
+      bind =      SUPER SHIFT,      Q, killactive,
+      bind =      SUPER CTRL SHIFT, Q, exec, kill -9 $(hyprctl activewindow -j | jq '.pid')
+      bind =      SUPER SHIFT, R, exec, hyprctl reload && eww reload
 
       # Screenshots
       bind = , PRINT,      exec, ${pkgs.grimblast}/bin/grimblast copysave output
-      bind = ALT SHIFT, S, exec, ${pkgs.grimblast}/bin/grimblast copysave area
+      bind = SUPER SHIFT, S, exec, ${pkgs.grimblast}/bin/grimblast copysave area
 
       # Shift focus
-      bind = ALT, H, movefocus, l
-      bind = ALT, J, movefocus, d
-      bind = ALT, K, movefocus, u
-      bind = ALT, L, movefocus, r
+      bind = SUPER, H, movefocus, l
+      bind = SUPER, J, movefocus, d
+      bind = SUPER, K, movefocus, u
+      bind = SUPER, L, movefocus, r
 
       # Move windows within layout
-      bind = ALT SHIFT, H, movewindow, l
-      bind = ALT SHIFT, J, movewindow, d
-      bind = ALT SHIFT, K, movewindow, u
-      bind = ALT SHIFT, L, movewindow, r
+      bind = SUPER SHIFT, H, movewindow, l
+      bind = SUPER SHIFT, J, movewindow, d
+      bind = SUPER SHIFT, K, movewindow, u
+      bind = SUPER SHIFT, L, movewindow, r
 
       # Float | fullscreen
-      bind = ALT, T, togglefloating,
-      bind = ALT, F, fullscreen,
+      bind = SUPER, T, togglefloating,
+      bind = SUPER, F, fullscreen,
 
       # Main apps
-      bind = ALT,       RETURN, exec, ${pkgs.kitty}/bin/kitty
-      bind = ALT,       P,      exec, ${pkgs.kitty}/bin/kitty ${pkgs.bottom}/bin/btm --battery
+      bind = SUPER,       RETURN, exec, ${pkgs.kitty}/bin/kitty
+      bind = SUPER,       P,      exec, ${pkgs.kitty}/bin/kitty ${pkgs.bottom}/bin/btm --battery
 
       # Workspace switching
-      bind = ALT, 1, workspace, 1
-      bind = ALT, 2, workspace, 2
-      bind = ALT, 3, workspace, 3
-      bind = ALT, 4, workspace, 4
-      bind = ALT, 5, workspace, 5
-      bind = ALT, 6, workspace, 6
-      bind = ALT, 7, workspace, 7
-      bind = ALT, 8, workspace, 8
-      bind = ALT, 9, workspace, 9
-      bind = ALT, 0, workspace, 10
+      bind = SUPER, 1, workspace, 1
+      bind = SUPER, 2, workspace, 2
+      bind = SUPER, 3, workspace, 3
+      bind = SUPER, 4, workspace, 4
+      bind = SUPER, 5, workspace, 5
+      bind = SUPER, 6, workspace, 6
+      bind = SUPER, 7, workspace, 7
+      bind = SUPER, 8, workspace, 8
+      bind = SUPER, 9, workspace, 9
+      bind = SUPER, 0, workspace, 10
 
       # Move focused window to workspace
-      bind = ALT SHIFT, 1, movetoworkspace, 1
-      bind = ALT SHIFT, 2, movetoworkspace, 2
-      bind = ALT SHIFT, 3, movetoworkspace, 3
-      bind = ALT SHIFT, 4, movetoworkspace, 4
-      bind = ALT SHIFT, 5, movetoworkspace, 5
-      bind = ALT SHIFT, 6, movetoworkspace, 6
-      bind = ALT SHIFT, 7, movetoworkspace, 7
-      bind = ALT SHIFT, 8, movetoworkspace, 8
-      bind = ALT SHIFT, 9, movetoworkspace, 9
-      bind = ALT SHIFT, 0, movetoworkspace, 10
+      bind = SUPER SHIFT, 1, movetoworkspace, 1
+      bind = SUPER SHIFT, 2, movetoworkspace, 2
+      bind = SUPER SHIFT, 3, movetoworkspace, 3
+      bind = SUPER SHIFT, 4, movetoworkspace, 4
+      bind = SUPER SHIFT, 5, movetoworkspace, 5
+      bind = SUPER SHIFT, 6, movetoworkspace, 6
+      bind = SUPER SHIFT, 7, movetoworkspace, 7
+      bind = SUPER SHIFT, 8, movetoworkspace, 8
+      bind = SUPER SHIFT, 9, movetoworkspace, 9
+      bind = SUPER SHIFT, 0, movetoworkspace, 10
 
       # Workspace-assigned apps
       bind = CTRL SHIFT, 1, exec, ${pkgs.kitty}/bin/kitty
@@ -99,7 +99,7 @@
       bind = , XF86MonBrightnessDown, exec, ${pkgs.brillo}/bin/brillo -q -U 10 -u 100000
 
       # Volume
-      bind = ALT SHIFT, M,            exec, volumectl toggle-mute
+      bind = SUPER SHIFT, M,            exec, volumectl toggle-mute
       bind = , XF86AudioMute,         exec, volumectl toggle-mute
       bind = , XF86AudioMicMute,      exec, volumectl -m toggle-mute
       bind = , XF86AudioRaiseVolume,  exec, volumectl -u up
@@ -113,8 +113,8 @@
       bindl = , switch:off:Lid Switch, dpms, on
 
       # Move & resize floating windows
-      bindm = ALT, mouse:272, movewindow
-      bindm = ALT, mouse:273, resizewindow
+      bindm = SUPER, mouse:272, movewindow
+      bindm = SUPER, mouse:273, resizewindow
 
       # Mouse
       input {
