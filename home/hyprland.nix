@@ -20,7 +20,19 @@ in {
     ];
   };
 
-  services.avizo.enable = true;
+  # OSD
+  services.avizo = {
+    enable = true;
+    settings = {
+      default = {
+        time = 1.0;
+        fade-in = 0.2;
+        fade-out = 0.2;
+        padding = 24;
+      };
+    };
+  };
+
   home.packages = with pkgs; [
     swww
     grimblast
