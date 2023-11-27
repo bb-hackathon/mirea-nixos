@@ -1,6 +1,8 @@
 # INFO: Hyprland, the smooth Wayland compositor
 
-{ inputs, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: let
+  inherit (config.theme) colors;
+in {
   imports = [
     ./apps/kitty.nix
     inputs.hyprland.homeManagerModules.default
@@ -228,6 +230,305 @@
       }
     '';
   };
+
+  programs.waybar = {
+    enable = true;
+    style = /* css */ ''
+      * {
+        font-family: JetBrainsMono Nerd Font;
+        font-size: 12px;
+        min-height: 0;
+      }
+
+      #waybar {
+        background: transparent;
+        #color: ${colors.text};
+      }
+
+      #window,
+      #clock,
+      #network,
+      #idle_inhibitor,
+      #pulseaudio,
+      #cpu,
+      #memory,
+      #temperature,
+      #backlight,
+      #battery,
+      #custom-updates,
+      #custom-dunst,
+      #tray,
+      #custom-lock,
+      #custom-power {
+        background-color: #${colors.surface0};
+        padding: 0.5rem 0.75rem;
+        margin: 5px 0;
+      }
+
+      #workspaces {
+        border-radius: 1rem 0px 0px 1rem;
+
+        margin: 5px 0 5px 5px;
+        padding-left: 0.3rem;
+        background-color: #${colors.surface0};
+      }
+
+      #workspaces button {
+        color: #${colors.lavender};
+        background-color: transparent;
+        border-radius: 2rem;
+        padding: 0.25rem;
+        margin: 0.3rem 0;
+
+        transition: color 0.5s, background-color 0.5s;
+      }
+
+      #workspaces button.empty {
+        color: #${colors.overlay0};
+      }
+
+      #workspaces button.special {
+        color: #${colors.rosewater};
+      }
+
+      #workspaces button.active {
+        #color: ${colors.sky};
+        background-color: #${colors.surface1};
+      }
+
+      #workspaces button:hover {
+        color: #${colors.sapphire};
+        background-color: #${colors.surface2};
+      }
+
+      #window {
+        border-radius: 0px 1rem 1rem 0px;
+        background-color: #${colors.surface0};
+        margin-right: 1rem;
+      }
+
+      #clock {
+        border-radius: 1rem;
+        #color: ${colors.blue};
+      }
+
+      #network {
+        #color: ${colors.teal};
+        border-radius: 1rem 0px 0px 1rem;
+        margin-left: 1rem;
+      }
+
+      #idle_inhibitor.deactivated {
+        #color: ${colors.peach};
+      }
+
+      #idle_inhibitor.activated {
+        #color: ${colors.green};
+      }
+
+      #pulseaudio {
+        #color: ${colors.maroon};
+      }
+
+      #cpu {
+        #color: ${colors.mauve};
+      }
+
+      #memory {
+        #color: ${colors.peach};
+      }
+
+      #temperature {
+        color: #${colors.flamingo};
+      }
+
+      #backlight {
+        #color: ${colors.yellow};
+      }
+
+      #battery {
+        #color: ${colors.green};
+      }
+
+      #battery.charging {
+        #color: ${colors.green};
+      }
+
+      #battery.warning:not(.charging) {
+        #color: ${colors.red};
+      }
+
+      #custom-updates {
+        #color: ${colors.red};
+      }
+
+      #custom-dunst {
+        margin-right: 0.75rem;
+        border-radius: 0px 1rem 1rem 0px;
+        color: #${colors.sapphire};
+      }
+
+      #tray {
+        margin-right: 0.75rem;
+        border-radius: 1rem;
+      }
+
+      #custom-lock {
+        border-radius: 1rem 0px 0px 1rem;
+        color: #${colors.lavender};
+      }
+
+      #custom-power {
+        margin: 5px 5px 5px 0;
+        border-radius: 0px 1rem 1rem 0px;
+        #color: ${colors.red};
+      }
+    '';
+  };
+
+  xdg.configFile."waybar/config".text = /* json */ ''
+    {
+      "layer": "top",
+      "position": "top",
+
+      "modules-left": ["hyprland/workspaces", "hyprland/window"],
+
+      "hyprland/workspaces": {
+        "sort-by-name": true,
+        "format": "{id}",
+        "show-special": true,
+        "persistent_workspaces": {
+          "*": 10
+        }
+       },
+
+      "modules-center": ["clock"],
+
+      "clock": {
+        "interval": 1,
+        "format": " {:%H:%M:%S %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+          "mode"          : "year",
+          "mode-mon-col"  : 3,
+          "weeks-pos"     : "right",
+          "on-scroll"     : 1,
+          "on-click-right": "mode",
+          "format": {
+            "months":   "<span color='#${colors.maroon}'><b>{}</b></span>",
+            "days":     "<span color='#${colors.text}'><b>{}</b></span>",
+            "weeks":    "<span color='#${colors.surface2}'><b>{}</b></span>",
+            "weekdays": "<span color='#${colors.mauve}'><b>{}</b></span>",
+            "today":    "<span color='#${colors.mauve}'><b><u>{}</u></b></span>"
+          }
+        }
+      },
+
+      "modules-right": [
+        "network",
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "battery",
+        "custom/updates",
+        "custom/dunst",
+        "tray",
+        "custom/lock",
+        "custom/power"
+      ],
+
+      "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
+        "format-ethernet": "{ipaddr} ",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "nm-connection-editor"
+      },
+
+      "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+          "activated": "",
+          "deactivated": ""
+        }
+      },
+
+      "cpu": {
+        "interval": 10,
+        "format": "{usage}% ",
+        "on-click": "kitty htop"
+      },
+
+      "memory": {
+        "interval": 10,
+        "format": "{}% ",
+        "on-click": "kitty htop"
+      },
+
+      "temperature": {
+        "interval": 30,
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C ",
+        "on-click": "kitty htop"
+      },
+
+      "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      },
+
+      "battery": {
+        "interval": 60,
+        "full-at": 95,
+        "states": {
+          "warning": 30,
+          "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["󱃍", "󱃍", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"],
+        "tooltip-format": "{capacity}%\n{timeTo}\n{power} W"
+      },
+
+      "custom/updates": {
+        "interval": 3600,
+        "exec": "~/.config/waybar/scripts/get_updates.sh",
+        "return-type": "json",
+        "exec-if": "exit 0",
+        "exec-on-event": false,
+        "on-click": "kitty sh -c ~/.config/waybar/scripts/update.sh",
+        "signal": 8
+      },
+
+      "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "return-type": "json",
+        "on-click": "dunstctl set-paused toggle"
+      },
+
+      "tray": {
+        "icon-size": 15,
+        "spacing": 10
+      },
+
+      "custom/lock": {
+        "tooltip": false,
+        "on-click": "swaylock",
+        "format": ""
+      },
+
+      "custom/power": {
+        "tooltip": false,
+        "on-click": "~/.config/rofi/scripts/power.sh",
+    "format": "⏻"
+  }
+}
+  '';
 
   gtk = {
     enable = true;
