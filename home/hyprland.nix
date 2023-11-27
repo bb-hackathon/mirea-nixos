@@ -20,8 +20,8 @@ in {
     ];
   };
 
+  services.avizo.enable = true;
   home.packages = with pkgs; [
-    avizo
     swww
     grimblast
     alsaUtils
@@ -43,8 +43,8 @@ in {
       
       # Autostart
       exec-once = ${pkgs.swww}/bin/swww init
-      exec-once = ${pkgs.eww-wayland}/bin/eww daemon --restart --force-wayland # TODO
       exec-once = ${pkgs.avizo}/bin/avizo-service
+      exec-once = waybar
 
       # Uncomment one line to set the wallpapers (these 4 are always provided)
       exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/evening-sky.png
@@ -55,7 +55,7 @@ in {
       # Kill window | Exit or reload hyprland | Lock screen
       bind = SUPER      SHIFT, Q, killactive,
       bind = SUPER CTRL SHIFT, Q, exec, kill -9 $(hyprctl activewindow -j | jq '.pid')
-      bind = SUPER      SHIFT, R, exec, hyprctl reload && eww reload
+      bind = SUPER      SHIFT, R, exec, hyprctl reload
       bind = SUPER CTRL SHIFT, L, exec, gtklock
       bind = SUPER CTRL SHIFT, E, exit
 
@@ -341,6 +341,7 @@ in {
       }
 
       #battery {
+        border-radius: 0px 1rem 1rem 0px;
         color: #${colors.green};
       }
 
