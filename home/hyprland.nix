@@ -109,6 +109,7 @@ in {
 
       # Workspace-assigned apps
       bind = CTRL SHIFT, 1, exec, ${pkgs.kitty}/bin/kitty
+      bind = CTRL SHIFT, 3, exec, librewolf
 
       # Brightness
       bind = , XF86MonBrightnessUp,   exec, ${pkgs.brillo}/bin/brillo -q -A 10 -u 100000
