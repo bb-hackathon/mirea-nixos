@@ -1,4 +1,4 @@
-{ inputs, outputs, config, pkgs, ... }: let
+{ inputs, outputs, config, lib, pkgs, ... }: let
   inherit (config.theme) colors;
 in {
   imports = [
@@ -103,6 +103,32 @@ in {
       theme = "catppuccin-sddm-corners";
     };
   };
+
+  # Locale
+  i18n = with lib; {
+    defaultLocale = mkDefault "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_CTYPE          = mkDefault "en_US.UTF-8";
+      LC_NUMERIC        = mkDefault "en_US.UTF-8";
+      LC_TIME           = mkDefault "en_US.UTF-8";
+      LC_COLLATE        = mkDefault "en_US.UTF-8";
+      LC_MONETARY       = mkDefault "en_US.UTF-8";
+      LC_MESSAGES       = mkDefault "en_US.UTF-8";
+      LC_PAPER          = mkDefault "en_US.UTF-8";
+      LC_NAME           = mkDefault "en_US.UTF-8";
+      LC_ADDRESS        = mkDefault "en_US.UTF-8";
+      LC_TELEPHONE      = mkDefault "en_US.UTF-8";
+      LC_MEASUREMENT    = mkDefault "en_US.UTF-8";
+      LC_IDENTIFICATION = mkDefault "en_US.UTF-8";
+    };
+    supportedLocales = mkDefault [
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8"
+    ];
+  };
+
+  # Timezone
+  time.timeZone = lib.mkDefault "Europe/Moscow";
 
   theme = builtins.fromTOML (
     builtins.readFile ../themes/catppuccin-mocha.toml
