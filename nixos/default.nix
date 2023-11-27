@@ -62,6 +62,11 @@
     networkmanager.enable = true;
   };
 
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   theme = builtins.fromTOML (
     builtins.readFile ../themes/catppuccin-mocha.toml
   );
