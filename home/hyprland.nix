@@ -292,7 +292,7 @@ in {
       }
 
       #workspaces button.active {
-        #color: ${colors.sky};
+        color: #${colors.sky};
         background-color: #${colors.surface1};
       }
 
@@ -309,11 +309,11 @@ in {
 
       #clock {
         border-radius: 1rem;
-        #color: ${colors.blue};
+        color: #${colors.blue};
       }
 
       #network {
-        #color: ${colors.teal};
+        color: #${colors.teal};
         border-radius: 1rem 0px 0px 1rem;
         margin-left: 1rem;
       }
@@ -381,7 +381,7 @@ in {
       #custom-power {
         margin: 5px 5px 5px 0;
         border-radius: 0px 1rem 1rem 0px;
-        #color: ${colors.red};
+        color: #${colors.red};
       }
     '';
   };
