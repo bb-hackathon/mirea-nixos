@@ -1,4 +1,6 @@
-{ inputs, outputs, pkgs, ... }: {
+{ inputs, outputs, config, pkgs, ... }: let
+  inherit (config.theme) colors;
+in {
   imports = [
     ./hardware.nix
     ./ssh.nix
@@ -67,6 +69,30 @@
   networking = {
     hostName = "mirea-nixos";
     networkmanager.enable = true;
+  };
+
+  console = {
+    earlySetup = true;
+    colors = [
+      # Normal
+      "${colors.base}"
+      "${colors.red}"
+      "${colors.green}"
+      "${colors.yellow}"
+      "${colors.blue}"
+      "${colors.mauve}"
+      "${colors.teal}"
+      "${colors.text}"
+      # Bright
+      "${colors.surface0}"
+      "${colors.red}"
+      "${colors.green}"
+      "${colors.yellow}"
+      "${colors.blue}"
+      "${colors.mauve}"
+      "${colors.teal}"
+      "${colors.text}"
+    ];
   };
 
   services.xserver = {
