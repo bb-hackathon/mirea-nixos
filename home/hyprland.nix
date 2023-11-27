@@ -149,9 +149,9 @@ in {
         rounding = 8
         drop_shadow = true
         shadow_range = 16
-        col.shadow = rgb(000000)
+        col.shadow = rgb(${colors.base})
 
-        dim_inactive = true
+        dim_inactive = false
         dim_strength = 0.3
 
         blur {
@@ -169,8 +169,8 @@ in {
         gaps_out = 16
         border_size = 2
 
-        col.active_border = rgb(cba6f7)
-        col.inactive_border = rgb(313244)
+        col.active_border = rgb(${colors.mauve})
+        col.inactive_border = rgb(${colors.base})
 
         # Mouse & cursor
         apply_sens_to_raw = 1
@@ -267,7 +267,6 @@ in {
 
       #workspaces {
         border-radius: 1rem 0px 0px 1rem;
-
         margin: 16px 0 16px 16px;
         padding-left: 0.3rem;
         background-color: #${colors.base};
@@ -279,7 +278,6 @@ in {
         border-radius: 2rem;
         padding: 0.25rem;
         margin: 0.3rem 0;
-
         transition: color 0.5s, background-color 0.5s;
       }
 
