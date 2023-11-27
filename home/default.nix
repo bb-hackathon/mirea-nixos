@@ -47,5 +47,9 @@
   # Store the userspace theme in `~/.config` in various formats
   xdg.configFile = {
     "theme.json".text = builtins.toJSON config.theme;
+    "wallpapers/evening-sky.png".source = ../assets/evening-sky.png;
+    "wallpapers/nix-black.png".source = ../assets/nix-black-4k.png;
+    "wallpapers/nix-magenta-blue.png".source = ../assets/nix-magenta-blue-1920x1080.png;
+    "wallpapers/nix-magenta-pink.png".source = ../assets/nix-magenta-pink-1920x1080.png;
   };
 }
