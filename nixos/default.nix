@@ -15,6 +15,8 @@
     neovim
     nushellFull
     rustup
+    gcc
+    gnumake
   ];
 
   # Nix settings
