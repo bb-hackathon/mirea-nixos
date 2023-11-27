@@ -1,6 +1,6 @@
 { ... }: let
   drive = rec {
-    name = "/dev/vda"; # !!!!!!!!!
+    name = "/dev/sda"; # !!!!!!!!!
     part = "${name}";
   };
 in {
@@ -25,12 +25,11 @@ in {
     
     initrd = {
       availableKernelModules = [
-        # !!!!!!!!!!!!!
-        "ahci"
         "xhci_pci"
-        "virtio_pci"
-        "virtio_blk"
-        # !!!!!!!!!!!!!
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
       ];
       kernelModules = [];
     };
