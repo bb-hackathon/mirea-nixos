@@ -242,7 +242,7 @@ in {
 
       #waybar {
         background: transparent;
-        #color: ${colors.text};
+        color: #${colors.text};
       }
 
       #window,
@@ -319,23 +319,23 @@ in {
       }
 
       #idle_inhibitor.deactivated {
-        #color: ${colors.peach};
+        color: #${colors.peach};
       }
 
       #idle_inhibitor.activated {
-        #color: ${colors.green};
+        color: #${colors.green};
       }
 
       #pulseaudio {
-        #color: ${colors.maroon};
+        color: #${colors.maroon};
       }
 
       #cpu {
-        #color: ${colors.mauve};
+        color: #${colors.mauve};
       }
 
       #memory {
-        #color: ${colors.peach};
+        color: #${colors.peach};
       }
 
       #temperature {
@@ -343,23 +343,23 @@ in {
       }
 
       #backlight {
-        #color: ${colors.yellow};
+        color: #${colors.yellow};
       }
 
       #battery {
-        #color: ${colors.green};
+        color: #${colors.green};
       }
 
       #battery.charging {
-        #color: ${colors.green};
+        color: #${colors.green};
       }
 
       #battery.warning:not(.charging) {
-        #color: ${colors.red};
+        color: #${colors.red};
       }
 
       #custom-updates {
-        #color: ${colors.red};
+        color: #${colors.red};
       }
 
       #custom-dunst {
