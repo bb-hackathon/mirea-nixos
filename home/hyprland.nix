@@ -236,7 +236,7 @@ in {
     style = /* css */ ''
       * {
         font-family: JetBrainsMono Nerd Font;
-        font-size: 12px;
+        font-size: 16px;
         min-height: 0;
       }
 
@@ -260,17 +260,17 @@ in {
       #tray,
       #custom-lock,
       #custom-power {
-        background-color: #${colors.surface0};
+        background-color: #${colors.base};
         padding: 0.5rem 0.75rem;
-        margin: 5px 0;
+        margin: 16px 0;
       }
 
       #workspaces {
         border-radius: 1rem 0px 0px 1rem;
 
-        margin: 5px 0 5px 5px;
+        margin: 16px 0 16px 16px;
         padding-left: 0.3rem;
-        background-color: #${colors.surface0};
+        background-color: #${colors.base};
       }
 
       #workspaces button {
@@ -303,7 +303,7 @@ in {
 
       #window {
         border-radius: 0px 1rem 1rem 0px;
-        background-color: #${colors.surface0};
+        background-color: #${colors.base};
         margin-right: 1rem;
       }
 
@@ -379,7 +379,7 @@ in {
       }
 
       #custom-power {
-        margin: 5px 5px 5px 0;
+        margin: 16px 16px 16px 0;
         border-radius: 0px 1rem 1rem 0px;
         color: #${colors.red};
       }
