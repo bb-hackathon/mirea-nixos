@@ -12,7 +12,9 @@
     git
     helix
     vim
+    neovim
     nushellFull
+    rustup
   ];
 
   # Nix settings
