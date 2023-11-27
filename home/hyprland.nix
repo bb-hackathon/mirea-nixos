@@ -29,6 +29,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = /* awk */ ''
+      # Environment variables
+      env = SWWW_TRANSITION_DURATION, 2
+      env = SWWW_TRANSITION_FPS, 60
+      env = SWWW_TRANSITION, center
+
       # Monitor
       monitor = , 1920x1080, auto, 1
       
