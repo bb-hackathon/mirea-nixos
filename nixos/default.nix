@@ -62,9 +62,12 @@
     networkmanager.enable = true;
   };
 
-  services.xserver.displayManager.sddm = {
+  services.xserver = {
     enable = true;
-    wayland.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
 
   theme = builtins.fromTOML (
