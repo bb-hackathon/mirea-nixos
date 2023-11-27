@@ -249,17 +249,13 @@ in {
       #clock,
       #network,
       #idle_inhibitor,
-      #pulseaudio,
       #cpu,
       #memory,
       #temperature,
       #backlight,
       #battery,
-      #custom-updates,
-      #custom-dunst,
       #tray,
-      #custom-lock,
-      #custom-power {
+      #custom-lock {
         background-color: #${colors.base};
         padding: 0.5rem 0.75rem;
         margin: 16px 0;
@@ -356,16 +352,6 @@ in {
         color: #${colors.red};
       }
 
-      #custom-updates {
-        color: #${colors.red};
-      }
-
-      #custom-dunst {
-        margin-right: 0.75rem;
-        border-radius: 0px 1rem 1rem 0px;
-        color: #${colors.sapphire};
-      }
-
       #tray {
         margin-right: 0.75rem;
         border-radius: 1rem;
@@ -374,12 +360,6 @@ in {
       #custom-lock {
         border-radius: 1rem 0px 0px 1rem;
         color: #${colors.lavender};
-      }
-
-      #custom-power {
-        margin: 16px 16px 16px 0;
-        border-radius: 0px 1rem 1rem 0px;
-        color: #${colors.red};
       }
     '';
   };
@@ -430,21 +410,17 @@ in {
         "temperature",
         "backlight",
         "battery",
-        "custom/updates",
-        "custom/dunst",
         "tray",
         "custom/lock",
-        "custom/power"
       ],
 
       "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} ({signalStrength}%) 󰖩",
         "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
-        "format-ethernet": "{ipaddr} ",
+        "format-ethernet": "{ipaddr} 󰈁",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "on-click": "nm-connection-editor"
+        "format-linked": "{ifname} (No IP) 󰌷",
+        "format-disconnected": "Disconnected 󰈂",
       },
 
       "idle_inhibitor": {
@@ -493,22 +469,6 @@ in {
         "tooltip-format": "{capacity}%\n{timeTo}\n{power} W"
       },
 
-      "custom/updates": {
-        "interval": 3600,
-        "exec": "~/.config/waybar/scripts/get_updates.sh",
-        "return-type": "json",
-        "exec-if": "exit 0",
-        "exec-on-event": false,
-        "on-click": "kitty sh -c ~/.config/waybar/scripts/update.sh",
-        "signal": 8
-      },
-
-      "custom/dunst": {
-        "exec": "~/.config/waybar/scripts/dunst.sh",
-        "return-type": "json",
-        "on-click": "dunstctl set-paused toggle"
-      },
-
       "tray": {
         "icon-size": 15,
         "spacing": 10
@@ -519,13 +479,7 @@ in {
         "on-click": "swaylock",
         "format": ""
       },
-
-      "custom/power": {
-        "tooltip": false,
-        "on-click": "~/.config/rofi/scripts/power.sh",
-    "format": "⏻"
-  }
-}
+    }
   '';
 
   gtk = {
