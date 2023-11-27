@@ -194,6 +194,24 @@
 
       # GTK file dialogs
       windowrulev2 = float, title:^(Open.*)$
+      
+      # Custom bezier curves
+      bezier = cubic, 0.65, 0, 0.35, 1
+      bezier = sine, 0.37, 0, 0.63, 1
+      bezier = quad, 0.45, 0, 0.55, 1
+      bezier = expo, 0.22, 1, 0.36, 1
+
+      animations {
+        enabled = 1
+        # --        <name>        <on/off>  <time>  <bezier>  <style>
+        animation = windowsIn,    1,        3,      expo,     slide
+        animation = windowsOut,   1,        3,      expo,     slide
+        animation = windowsMove,  1,        3,      expo
+        animation = fade,         1,        3,      expo
+        animation = fadeOut,      1,        3,      expo
+        animation = workspaces,   1,        4,      expo,     slide
+        animation = border,       1,        8,      default
+      }
     '';
   };
 }
