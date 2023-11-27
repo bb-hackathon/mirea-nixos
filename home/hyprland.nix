@@ -49,9 +49,11 @@
       # exec = sleep 0.5 && ${pkgs.swww}/bin/swww img ~/.config/wallpapers/nix-magenta-pink.png
 
       # Kill window | Exit or reload hyprland | Lock screen
-      bind =      SUPER SHIFT,      Q, killactive,
-      bind =      SUPER CTRL SHIFT, Q, exec, kill -9 $(hyprctl activewindow -j | jq '.pid')
-      bind =      SUPER SHIFT, R, exec, hyprctl reload && eww reload
+      bind = SUPER      SHIFT, Q, killactive,
+      bind = SUPER CTRL SHIFT, Q, exec, kill -9 $(hyprctl activewindow -j | jq '.pid')
+      bind = SUPER      SHIFT, R, exec, hyprctl reload && eww reload
+      bind = SUPER CTRL SHIFT, L, exec, gtklock
+      bind = SUPER CTRL SHIFT, E, exit
 
       # Screenshots
       bind = , PRINT,      exec, ${pkgs.grimblast}/bin/grimblast copysave output

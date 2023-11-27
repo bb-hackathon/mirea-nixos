@@ -17,6 +17,7 @@
     rustup
     gcc
     gnumake
+    gtklock
   ];
 
   # Nix settings
@@ -55,6 +56,7 @@
   };
 
   system.stateVersion = "23.05";
+  security.pam.services.gtklock = {};
   networking = {
     hostName = "mirea-nixos";
     networkmanager.enable = true;
