@@ -19,7 +19,13 @@
     gnumake
     gtklock
     catppuccin-sddm-corners
-  ];
+  ] ++ (with pkgs.libsForQt5.qt5; [
+    # For SDDM's `catppuccin` theme
+    qtbase
+    qtgraphicaleffects
+    qtsvg
+    qtquickcontrols2
+  ]);
 
   # Nix settings
   nix = {
