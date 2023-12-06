@@ -1,2 +1,5 @@
 /result
+config/
 *.qcow2
+*.gz
+*.tar
