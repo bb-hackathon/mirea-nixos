@@ -267,7 +267,7 @@ in {
     enable = true;
     style = /* css */ ''
       * {
-        font-family: IosevkaTerm Nerd Font;
+        font-family: IosevkaTerm NF;
         font-size: 16px;
         min-height: 0;
       }
@@ -525,7 +525,7 @@ in {
   gtk = {
     enable = true;
     font = {
-      name = "IosevkaTerm Nerd Font";
+      name = "IosevkaTerm NF";
       size = 10;
     };
     theme = {

@@ -1,24 +1,13 @@
 # INFO: Kitty: fast, feature-rich, GPU based terminal emulator
 
-{ config, pkgs, ... }: let
-  # Launch Kitty instead of xterm
-  kitty-xterm = pkgs.writeShellScriptBin "xterm" /* shell */ ''
-    ${config.programs.kitty.package}/bin/kitty -1 "$@"
-  '';
-
+{ config, ... }: let
   inherit (config.theme) colors;
 in {
-  home.packages = [ kitty-xterm ]; # The alias defined above
   programs.kitty = {
     enable = true;
-    font = {
-      name = "IosevkaTerm Nerd Font";
-      size = 12;
-    };
-    settings = {
+    settings = let fontFamily = "IosevkaTerm NF"; in {
       sync_to_monitor = "yes";
       window_padding_width = 4;
-      single_window_margin_width = 4;
 
       # Opacity
       background_opacity = "0.9";
@@ -45,9 +34,9 @@ in {
       # Magenta
       color5 = "#${colors.mauve}";
       color13 = "#${colors.mauve}";
-      # Purple
-      color6 = "#${colors.teal}";
-      color14 = "#${colors.teal}";
+      # Cyan
+      color6 = "#${colors.sky}";
+      color14 = "#${colors.sky}";
       # White
       color7 = "#${colors.text}";
       color15 = "#${colors.text}";
@@ -57,7 +46,7 @@ in {
 
       cursor = "#${colors.text}";
       cursor_shape = "beam";
-      url_color = "#${colors.surface2}";
+      url_color = "#${colors.blue}";
 
       active_border_color = "#${colors.surface1}";
       inactive_border_color = "#${colors.base}";
@@ -66,6 +55,17 @@ in {
       inactive_tab_background = "#${colors.base}";
       inactive_tab_foreground = "#${colors.surface2}";
       tab_bar_background = "#${colors.base}";
+
+      # Font settings
+      font_size = 12;
+      font_family      = "${fontFamily} Medium";
+      bold_font        = "${fontFamily} Bold";
+      italic_font      = "${fontFamily} Medium Italic";
+      bold_italic_font = "${fontFamily} Bold Italic";
+    };
+
+    keybindings = {
+      "ctrl+shift+enter" = "no_op";
     };
   };
 }
