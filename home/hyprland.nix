@@ -187,7 +187,7 @@ in {
         border_size = 2
 
         col.active_border = rgb(${colors.mauve})
-        col.inactive_border = rgb(${colors.base})
+        col.inactive_border = rgb(${colors.surface1})
 
         # Mouse & cursor
         apply_sens_to_raw = 1
