@@ -267,7 +267,7 @@ in {
     enable = true;
     style = /* css */ ''
       * {
-        font-family: JetBrainsMono Nerd Font;
+        font-family: IosevkaTerm Nerd Font;
         font-size: 16px;
         min-height: 0;
       }
@@ -525,7 +525,7 @@ in {
   gtk = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "IosevkaTerm Nerd Font";
       size = 10;
     };
     theme = {

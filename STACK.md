@@ -15,5 +15,5 @@
 - Файловая система: **BTRFS**
 - Логин-менеджер: **SDDM**
 - Lockscreen: `gtklock`
-- Шрифт: **JetBrainsMono**
+- Шрифт: **IosevkaTerm**
 - Цветовая тема: **Catppuccin**
