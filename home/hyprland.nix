@@ -44,7 +44,11 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = /* awk */ ''
+    plugins = [
+       # WARN: May malfunction
+      inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
+    ];
+    extraConfig = /* shell */ ''
       # Environment variables
       env = SWWW_TRANSITION_DURATION, 2
       env = SWWW_TRANSITION_FPS, 60
@@ -240,6 +244,21 @@ in {
         animation = fadeOut,     1,       3,     expo
         animation = workspaces,  1,       4,     expo,    slide
         animation = border,      1,       8,     default
+      }
+
+      plugin {
+        # Additional borders
+        borders-plus-plus {
+          add_borders = 2
+          # BUG: Border #1 draws weirdly for some reason, but
+          # others are OK, so `size` is set to 0 as a workaround
+          col.border_1 = rgb(${colors.base})
+          border_size_1 = 0
+
+          # This is the visible second border
+          col.border_2 = rgb(${colors.base})
+          border_size_2 = 4
+        }
       }
     '';
   };
