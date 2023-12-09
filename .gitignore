@@ -3,3 +3,4 @@ config/
 *.qcow2
 *.gz
 *.tar
+.obsidian
