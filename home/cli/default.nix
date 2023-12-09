@@ -24,6 +24,10 @@
     bottom
     duf
 
+    # Go
+    go
+    gopls
+
     # Networking
     nmap
     netdiscover

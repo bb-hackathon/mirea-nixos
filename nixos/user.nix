@@ -4,6 +4,7 @@ in {
   users.users = {
     "user" = {
       isNormalUser = true;
+      initialPassword = "12345";
       packages = with pkgs; [ home-manager ];
       shell = pkgs.fish; # See below!
       extraGroups = [
@@ -18,6 +19,7 @@ in {
         "libvirtd"
       ];
     };
+    "root".initialPassword = "12345";
   };
 
   home-manager.users."user" = import ../home;

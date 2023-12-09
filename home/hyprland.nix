@@ -35,9 +35,13 @@ in {
 
   home.packages = with pkgs; [
     swww
+    wl-clipboard
+    obsidian
+    libreoffice
     grimblast
     alsaUtils
     brillo
+    fuzzel
     gtk-engine-murrine
     gnome.adwaita-icon-theme
   ];
@@ -55,7 +59,7 @@ in {
       env = SWWW_TRANSITION, center
 
       # Monitor
-      monitor = , 1920x1080, auto, 1
+      monitor = , 2880x1800, auto, 1.5
       
       # Autostart
       exec-once = ${pkgs.swww}/bin/swww init
@@ -74,6 +78,7 @@ in {
       bind = SUPER      SHIFT, R, exec, hyprctl reload
       bind = SUPER CTRL SHIFT, L, exec, gtklock
       bind = SUPER CTRL SHIFT, E, exit
+      bind = SUPER,            D, exec, fuzzel -b 1e1e2eff -t cdd6f4ff -r 8 -C cba6f7ff -B 2 -m f38ba8ff -s f38ba8ff -S 1e1e2eff -M 1e1e2eff
 
       # Screenshots
       bind = ,        PRINT, exec, ${pkgs.grimblast}/bin/grimblast copysave output
@@ -425,6 +430,7 @@ in {
       "clock": {
         "interval": 1,
         "format": " {:%H:%M:%S %d %b}",
+        "tooltip": false,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
           "mode"          : "year",
@@ -479,7 +485,7 @@ in {
 
       "memory": {
         "interval": 10,
-        "format": "{}% ",
+        "format": "{}%  ",
         "on-click": "kitty htop"
       },
 
