@@ -1,10 +1,6 @@
 ## Кейс: *"Кастомизация GNU/Linux"*
 
 <p align="center">
-	<img src="https://github.com/NixOS/nixos-artwork/blob/master/logo/nix-snowflake.svg" alt="NixOS Logo" width="250"/>
-</p>
-
-<p align="center">
 	NixOS Snowflake ❄️
 </p>
 
